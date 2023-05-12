@@ -36,7 +36,7 @@ class SubjectController extends Controller
         $subject->staff_id = $request->staff_id;
         $subject->department_id = $request->department_id;
         $subject->save();
-        return redirect()->route('creatsubject')->with("done", "add successs");
+        return redirect('/subject/listsubject');
     }
     public function edit($id)
     {

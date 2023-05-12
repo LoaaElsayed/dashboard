@@ -18,9 +18,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-// Route::get('main',function () {
-//     return view('index');
-// });
 // routes staff
 Route::get('staff/liststaff','StaffController@liststaff')->name('liststaff');
 Route::get('staff/destorestaff/{id}','StaffController@destore')->name('destorestaff');
