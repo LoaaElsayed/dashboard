@@ -11,17 +11,17 @@ class DepartmeantController extends Controller
     public function listexcuse()
     {
         $department = Departmeant::with('admin')->get();
-        return view('list', compact('department'));
+        return view('department', compact('department'));
     }
     public function create()
     {
         $admins = Admin::all();
-        return view('welcome', compact('admins'))->with("done", "update successs");
+        return view('department-Handell', compact('admins'));
     }
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required',
+            'name' => 'required|string',
             'admin_id' => 'required',
         ]);
         $departmeant = new Departmeant();

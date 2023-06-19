@@ -35,7 +35,7 @@
                             <td>{{ $date->id }}</td>
                             <td>{{ $date->name }}</td>
                             <td>{{ $date->email }}</td>
-                            <td>{{ $date->role_id }}</td>
+                            <td>{{ $date->role->name }}</td>
                             <td>
                                 <a href="{{ route('destoresubject', $date->id) }}">
                                     <button class="btn btn-warning">UPdate</button>
