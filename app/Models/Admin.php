@@ -12,6 +12,7 @@ class Admin extends Model
     protected $fillable = [
         'name',
         'email',
+        'password',
         'role_id'
     ];
     public function department()

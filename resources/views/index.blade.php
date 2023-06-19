@@ -2,7 +2,7 @@
 @extends('layout.nav')
 @extends('layout.asid')
 @section('content')
-    <main id="main" class="main">
+    {{--  <main id="main" class="main">
         <div class="pagetitle">
             <h1>Dashboard</h1>
             <nav>
@@ -11,7 +11,7 @@
                     <li class="breadcrumb-item active">Dashboard</li>
                 </ol>
             </nav>
-        </div><!-- End Page Title -->
+        </div><!-- End Page Title -->  --}}
         <section class="section">
             <div class="row">
                 <div class="col-lg-12">
@@ -34,10 +34,9 @@
                             </h5>
                             <img style="height: 60vh;" src="{{ asset('uploads/img/show7.png') }}" class="w-100" alt="">
                         </div>
-                        </divclass=>
+                        </divclass>
                 </div>
             </div>
         </section>
-    </main>
-    #<!-- End main -->
+    {{--  </main>  --}}
 @endsection

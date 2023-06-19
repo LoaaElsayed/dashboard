@@ -8,17 +8,24 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    public function login()
+    {
+        return view('pages-login');
+    }
+    public function logout()
+    {
+        return view('index');
+    }
     public function listadmin()
     {
         $admin = Admin::with('role')->get();
-        return view('list',compact('admin'));
+        return view('admin',compact('admin'));
     }
 
     public function create()
     {
-        $admin= Admin::all();
         $roles = Role::all();
-        return view('welcome',compact('admin','roles'));
+        return view('admin-handell',compact('roles'));
     }
     public function store(Request $request)
     {
@@ -34,7 +41,7 @@ class AdminController extends Controller
         $admin->password = bcrypt('$request->password') ;
         $admin->role_id = $request->role_id;
         $admin->save();
-        return redirect()->route('createadmin')->with("done", "add successs");
+        return redirect('admin/createadmin')->with("done", "add successs");
     }
     public function edit($id)
     {

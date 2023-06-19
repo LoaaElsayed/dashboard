@@ -16,7 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
+
+// auth
+Route::get('login','AdminController@login')->name('login');
+Route::get('logout','AdminController@logout')->name('logout');
 
 // routes staff
 Route::get('staff/liststaff','StaffController@liststaff')->name('liststaff');
