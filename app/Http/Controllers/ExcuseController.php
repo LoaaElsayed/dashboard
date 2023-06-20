@@ -10,12 +10,11 @@ class ExcuseController extends Controller
     public function listexcuse()
     {
         $excuse = Excuse::all();
-        return view('list',compact('excuse'));
+        return view('excuse',compact('excuse'));
     }
     public function create()
     {
-        $excuse= Excuse::all();
-        return view('welcome',compact('excuse'));
+        return view('excuse-Handell');
     }
     public function store(Request $request)
     {
