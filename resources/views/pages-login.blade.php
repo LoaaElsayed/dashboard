@@ -1,7 +1,4 @@
 @extends('layout.app')
-@section('title')
-    LogIn
-@endsection
 @section('content')
     <div class="row justify-content-center">
         <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
@@ -28,9 +25,9 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <label for="yourname" class="form-label">Name</label>
-                            <input type="text" name="name" class="form-control" id="yourname" required>
-                            <div class="invalid-feedback">Please enter your name!</div>
+                            <label for="yourpassword" class="form-label">Password</label>
+                            <input type="text" name="password" class="form-control" id="yourpassword" required>
+                            <div class="invalid-feedback">Please enter your password!</div>
                         </div>
                         <div class="col-12">
                             <button style="background-color: #217a8a; color: #fff;" class="btn w-100"

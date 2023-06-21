@@ -47,7 +47,7 @@ class AdminController extends Controller
     {
         $admin= Admin::find($id);
         $roles = Role::all();
-        return view('welcome',compact('admin','roles'));
+        return view('admin-edit',compact('admin','roles'));
     }
     public function update(Request $request,$id)
     {
@@ -63,7 +63,7 @@ class AdminController extends Controller
         $admin->password = bcrypt('$request->password') ;
         $admin->role_id = $request->role_id;
         $admin->save();
-        return redirect()->route('listadmin')->with("done", "update successs");
+        return redirect()->back()->with("done", "update successs");
     }
     public function destore($id)
     {

@@ -14,7 +14,6 @@
                     new</a>
             </div>
             <h5 class="card-title">Table</h5>
-            {{--  <!-- Table -->  --}}
             <table class="table text-center">
                 <thead>
                     <tr>
@@ -37,12 +36,12 @@
                             <td>{{ $date->email }}</td>
                             <td>{{ $date->role->name }}</td>
                             <td>
-                                <a href="{{ route('destoresubject', $date->id) }}">
+                                <a href="{{ Route('editadmin', $date->id) }}">
                                     <button class="btn btn-warning">UPdate</button>
                                 </a>
                             </td>
                             <td>
-                                <a href="{{ route('destoresubject', $date->id) }}">
+                                <a href="{{ Route('destoreadmin', $date->id) }}">
                                     <button class="btn btn-danger">delete</button>
                                 </a>
                             </td>
