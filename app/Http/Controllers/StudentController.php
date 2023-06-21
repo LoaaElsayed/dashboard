@@ -16,7 +16,7 @@ class StudentController extends Controller
     public function editstudent($id)
     {
         $editstu=Student::find($id);
-        return view('welcome',compact('editstu'));
+        return view('student-Handel',compact('editstu'));
     }
     public function updatestudent(Request $request ,$id)
     {
