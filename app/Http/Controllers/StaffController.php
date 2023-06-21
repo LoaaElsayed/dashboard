@@ -13,7 +13,30 @@ class StaffController extends Controller
     public function liststaff()
     {
         $staff = Staff::with('department')->get();
-        return view('list',compact('staff')) ;
+        return view('staff',compact('staff')) ;
+    }
+    public function create()
+    {
+        $dep= Departmeant::all();
+        return view('staff-Handell',compact('dep'));
+    }
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:50',
+            'national_id' => 'required|digits:14',
+            'image' => 'required|image|mimes:png,jpg',
+        ]);
+        $staff= new Staff();
+        $staff->name = $request->name;
+        $staff->role_staff = $request->role_staff;
+        $staff->company_code = "#Fci21";
+        $staff->national_id = $request->national_id;
+        $staff->department_id = $request-> department_id;
+        $path = Storage::disk('uploads')->put('staff', $request->image);
+        $staff->image = "uploads/$path";
+        $staff->save();
+        return redirect("staff/creatstaff")->with("done", "add successs");
     }
     public function edit($id)
     {

@@ -24,6 +24,8 @@ Route::get('logout','AdminController@logout')->name('logout');
 
 // routes staff
 Route::get('staff/liststaff','StaffController@liststaff')->name('liststaff');
+Route::get('staff/creatstaff','StaffController@create')->name('creatstaff');
+Route::post('staff/addstaff','StaffController@store')->name('addstaff');
 Route::get('staff/destorestaff/{id}','StaffController@destore')->name('destorestaff');
 Route::get('staff/editstaff/{id}','StaffController@edit')->name('editstaff');
 Route::post('staff/updatestaff/{id}','StaffController@update')->name('updatestaff');

@@ -2,7 +2,7 @@
 @extends('layout.nav')
 @extends('layout.asid')
 @section('title')
-    Department
+    ADD Department
 @endsection
 @section('content')
     @if (Session::has('done'))
