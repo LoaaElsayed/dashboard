@@ -33,8 +33,8 @@
                     <td>{{ $excuse->type}}</td>
                     <td>{{ $excuse->descrption }}</td>
                     <td>{{ $excuse->duration_time }}</td>
-                    <td><a href="#" class="btn btn-warning my-2 ms-2">update</a></td>
-                    <td><a class="btn btn-danger my-2 ms-2">delete</a></td>
+                    <td><a href="{{ Route('editexcuse',$excuse->id) }}" class="btn btn-warning my-2 ms-2">update</a></td>
+                    <td><a href="{{ Route('destoreexcuse',$excuse->id) }}" class="btn btn-danger my-2 ms-2">delete</a></td>
                 </tr>
                 @endforeach
             </tbody>

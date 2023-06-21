@@ -35,7 +35,7 @@ class ExcuseController extends Controller
     public function edit($id)
     {
         $excuse = Excuse::find($id);
-        return view('welcome',compact('excuse'));
+        return view('excuse-edit',compact('excuse'));
     }
     public function update(Request $request,$id)
     {
@@ -51,12 +51,12 @@ class ExcuseController extends Controller
         $excuse->descrption = $request->descrption;
         $excuse->duration_time = $request->duration_time;
         $excuse->save();
-        return redirect()->route('listexcuse')->with("done", "update successs");
+        return redirect()->back()->with("done", "update successs");
     }
     public function destore($id)
     {
         $excuse = Excuse::find($id);
         $excuse->delete();
-        return redirect()->route('listexcuse')->with("done", "delete successs");
+        return redirect()->back()->with("done", "delete successs");
     }
 }
