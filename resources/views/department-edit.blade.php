@@ -2,7 +2,7 @@
 @extends('layout.nav')
 @extends('layout.asid')
 @section('title')
-    ADD Department
+    Edit Department
 @endsection
 @section('content')
     @if (Session::has('done'))
@@ -22,12 +22,12 @@
         @endif
         <div class="card-body">
             <h5 class="card-title">Department Form</h5>
-            <form action="{{ Route('adddepartment') }}" class="d-grid" method="POST">
+            <form action="{{ Route('updatedepartment',$departmeant->id) }}" class="d-grid" method="POST">
                 @csrf
                 <label for="name" class="py-2">Name:</label>
-                <input type="text" id="name" class="form-control" name="name">
+                <input type="text" id="name" class="form-control" name="name" value="{{ $departmeant->name }}">
                 <div class="form-group">
-                    <label for="role" class="py-2">Admin:</label>
+                    <label for="role" class="py-2">Admin:</label><span>{{ $departmeant->admin->name }}</span>
                     <select id="role" class="form-control" name="admin_id">
                         @foreach ($admins as $admins)
                             <option value="{{ $admins->id }}">{{ $admins->name }}</option>

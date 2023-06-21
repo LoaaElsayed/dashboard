@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Staff;
 use App\Models\Departmeant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DepartmeantController extends Controller
 {
@@ -34,7 +36,7 @@ class DepartmeantController extends Controller
     {
         $departmeant = Departmeant::find($id);
         $admins = Admin::all();
-        return view('welcome', compact('admins', 'departmeant'));
+        return view('department-edit', compact('admins', 'departmeant'));
     }
     public function update(Request $request, $id)
     {
@@ -46,12 +48,17 @@ class DepartmeantController extends Controller
         $departmeant->name = $request->name;
         $departmeant->admin_id = $request->admin_id;
         $departmeant->save();
-        return redirect()->route('listdepartment')->with("done", "update successs");
+        return redirect()->back()->with("done", "update successs");
     }
     public function destore($id)
     {
-        $departmeant = Departmeant::find($id);
-        $departmeant->delete();
-        return redirect()->route('listdepartment')->with("done", "delete successs");
+        // $departmeant = Departmeant::find($id);
+        // $staff = Staff::where('department_id', $id);
+        // $departmeant->delete();
+        // $staff->delete();
+        DB::table('staff')->where('department_id', $id)->delete();
+        DB::table('departments')->where('id', $id)->delete();
+        return redirect()->back()->with("done", "delete successs");
+
     }
 }
