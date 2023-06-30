@@ -6,6 +6,11 @@
 @endsection
 @section('content')
     <div class="card">
+        @if (Session::has('done'))
+            <div class="alert alert-success" role="alert">
+                {{ Session::get('done') }}
+            </div>
+        @endif
         <div class="card-body">
             <div class="d-flex align-items-center justify-content-around border border-dark my-3">
                 <h4 style="color: #3b5c63; font-weight: bold;font-size: 16px;">Add a New Element To A Table</h4>
@@ -27,18 +32,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ( $staff as  $staff)
-                    <tr>
-                        <th>{{ $staff->id }}</th>
-                        <td>{{ $staff->name }}</td>
-                        <td>{{ $staff-> national_id}}</td>
-                        <td>{{ $staff->	role_staff }}</td>
-                        <td><img style="width: 100%; height: 50px;" src="{{ asset($staff->image) }}" alt="">
-                        </td>
-                        <td>{{ $staff->department->name  }}</td>
-                        <td> <a href="staff-Handell.html" class="btn btn-warning my-2 ms-2">update</a></td>
-                        <td> <a class="btn btn-danger my-2 ms-2">delete</a></td>
-                    </tr>
+                    @foreach ($staff as $staff)
+                        <tr>
+                            <th>{{ $staff->id }}</th>
+                            <td>{{ $staff->name }}</td>
+                            <td>{{ $staff->national_id }}</td>
+                            <td>{{ $staff->role_staff }}</td>
+                            <td><img style="width: 100%; height: 50px;" src="{{ asset($staff->image) }}" alt="">
+                            </td>
+                            <td>{{ $staff->department->name }}</td>
+                            <td> <a href="{{ Route('editstaff', $staff->id) }}" class="btn btn-warning my-2 ms-2">Update</a>
+                            </td>
+                            <td> <a href="{{ Route('destorestaff', $staff->id) }}"
+                                    class="btn btn-danger my-2 ms-2">Delete</a></td>
+                        </tr>
                     @endforeach
 
                 </tbody>

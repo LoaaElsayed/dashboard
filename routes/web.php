@@ -29,7 +29,7 @@ Route::post('staff/addstaff','StaffController@store')->name('addstaff');
 Route::get('staff/destorestaff/{id}','StaffController@destore')->name('destorestaff');
 Route::get('staff/editstaff/{id}','StaffController@edit')->name('editstaff');
 Route::post('staff/updatestaff/{id}','StaffController@update')->name('updatestaff');
-Route::post('staff/absesnce','StaffController@update')->name('staffabsence');
+Route::get('staff/absesnce','StaffController@staffabsence')->name('staffabsence');
 
 // routes student
 Route::get('student/liststudent','StudentController@liststudent')->name('liststudent');
