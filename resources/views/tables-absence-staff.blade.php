@@ -37,7 +37,6 @@
                             <th scope="col">Date</th>
                             <th scope="col">State</th>
                             <th scope="col">Excuse</th>
-                            <th scope="col">Update</th>
                             <th scope="col">Delete</th>
                         </tr>
                     </thead>
