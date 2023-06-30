@@ -78,4 +78,9 @@ class StaffController extends Controller
         $attend = attendStaffall::all() ;
         return view('tables-absence-staff',compact('attend'));
     }
+    public function staffabsencedelete($id)
+    {
+        DB::table('attend_staff')->where('id', $id)->delete();
+        return redirect('staff/absesnce')->with("done", "delete successs");
+    }
 }

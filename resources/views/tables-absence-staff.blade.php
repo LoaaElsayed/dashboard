@@ -30,29 +30,28 @@
                 <h5 class="card-title">Table</h5>
                 <table class="table text-center">
                     <thead>
-                        @foreach ($attend as $data)
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Day</th>
-                                <th scope="col">Data</th>
-                                <th scope="col">State</th>
-                                <th scope="col">Excuse</th>
-                                <th scope="col">Update</th>
-                                <th scope="col">Delete</th>
-                            </tr>
-                        @endforeach
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Day</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">State</th>
+                            <th scope="col">Excuse</th>
+                            <th scope="col">Update</th>
+                            <th scope="col">Delete</th>
+                        </tr>
                     </thead>
                     <tbody>
-                        <th scope="row">5</th>
-                        <td>5dss</ts>
-                        <td>Raheem Lehner</td>
-                        <td>Dynamic Division Officer</td>
-                        <td>47</td>
-                        <td>2011-04-19</td>
-                        <td> <a href="tables-absence-staff-Hadell.html" class="btn btn-warning my-2 ms-2">update</a></td>
-                        <td> <a class="btn btn-danger my-2 ms-2">delete</a></td>
-                        </tr>
+                        @foreach ($attend as $data)
+                            <th scope="row">{{ $data->id }}</th>
+                            <td>{{ $data->name }}</td>
+                            <td>{{ $data->day }}</td>
+                            <td>{{ $data->date }}</td>
+                            <td>{{ $data->state }}</td>
+                            <td>{{ $data->excuse }}</td>
+                            <td> <a href="{{ route('staffabsencedelete', $data->id ) }}" class="btn btn-danger my-2 ms-2">delete</a></td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

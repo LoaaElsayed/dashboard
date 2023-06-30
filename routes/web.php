@@ -30,6 +30,7 @@ Route::get('staff/destorestaff/{id}','StaffController@destore')->name('destorest
 Route::get('staff/editstaff/{id}','StaffController@edit')->name('editstaff');
 Route::post('staff/updatestaff/{id}','StaffController@update')->name('updatestaff');
 Route::get('staff/absesnce','StaffController@staffabsence')->name('staffabsence');
+Route::get('staff/absesncedelete/{id}','StaffController@staffabsencedelete')->name('staffabsencedelete');
 
 // routes student
 Route::get('student/liststudent','StudentController@liststudent')->name('liststudent');
