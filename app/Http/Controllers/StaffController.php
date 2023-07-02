@@ -81,7 +81,7 @@ class StaffController extends Controller
     }
     public function destore($id)
     {
-        DB::table('excuses')->where('excuse_id', $id)->delete();
+        // DB::table('excuses')->where('excuse_id', $id)->delete();
         DB::table('Staff')->where('id', $id)->delete();
         return redirect('staff/liststaff')->with("done", "delete successs");
     }
