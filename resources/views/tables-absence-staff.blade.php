@@ -33,6 +33,7 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
+                            <th scope="col">National_ID</th>
                             <th scope="col">Day</th>
                             <th scope="col">Date</th>
                             <th scope="col">State</th>
@@ -44,6 +45,7 @@
                         @foreach ($attend as $data)
                             <th scope="row">{{ $data->id }}</th>
                             <td>{{ $data->name }}</td>
+                            <td>{{ $data->national_id }}</td>
                             <td>{{ $data->day }}</td>
                             <td>{{ $data->date }}</td>
                             <td>{{ $data->state }}</td>

@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Storage;
+use NunoMaduro\Collision\Adapters\Phpunit\State;
+
+use function PHPUnit\Framework\isEmpty;
 
 class StaffController extends Controller
 {
@@ -16,6 +19,15 @@ class StaffController extends Controller
     {
         $staff = Staff::with('department')->get();
         return view('staff', compact('staff'));
+    }
+    public function show($id)
+    {
+        $info = staff::with('department')->find($id);
+        $absence = DB::table('staff')
+        ->leftJoin('attend_staff', 'staff.national_id', '=', 'attend_staff.national_id')
+        ->where('staff.id', '=', $id)
+        ->first();
+        return view('staff-show', compact('info','absence'));
     }
     public function create()
     {

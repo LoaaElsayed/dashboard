@@ -28,6 +28,7 @@
                         <th scope="col">Image</th>
                         <th scope="col">Department</th>
                         <th scope="col">Update</th>
+                        <th scope="col">Show</th>
                         <th scope="col">Delete</th>
                     </tr>
                 </thead>
@@ -38,10 +39,12 @@
                             <td>{{ $staff->name }}</td>
                             <td>{{ $staff->national_id }}</td>
                             <td>{{ $staff->role_staff }}</td>
-                            <td><img style="width: 100%; height: 50px;" src="{{ asset($staff->image) }}" alt="">
+                            <td><img style="width: 80%; height: 50px;" src="{{ asset($staff->image) }}" alt="">
                             </td>
                             <td>{{ $staff->department->name }}</td>
                             <td> <a href="{{ Route('editstaff', $staff->id) }}" class="btn btn-warning my-2 ms-2">Update</a>
+                            </td>
+                            <td> <a href="{{ Route('staffshow', $staff->id) }}" class="btn btn-dark my-2 ms-2">Show</a>
                             </td>
                             <td> <a href="{{ Route('destorestaff', $staff->id) }}"
                                     class="btn btn-danger my-2 ms-2">Delete</a></td>
