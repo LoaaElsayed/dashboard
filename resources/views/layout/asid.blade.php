@@ -35,11 +35,6 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('listexcuse') }}">
-                        <i class="bi bi-circle"></i><span>Excuse</span>
-                    </a>
-                </li>
-                <li>
                     <a href="{{ route('listdepartment') }}">
                         <i class="bi bi-circle"></i><span>Department</span>
                     </a>

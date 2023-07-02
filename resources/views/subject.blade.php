@@ -25,7 +25,7 @@
             <h5 class="card-title">Table</h5>
             {{--  <!--Table -->  --}}
             <table class="table text-center">
-                <thead>
+                <thead style="color: #1f7a8c">
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">ID</th>
@@ -42,7 +42,7 @@
                     <tr>
                         @foreach ($subject as $date)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
+                        <td style="color: #1f7a8c">{{ $loop->iteration }}</td>
                         <td>{{ $date->id }}</td>
                         <td>{{ $date->name }}</td>
                         <td>{{ $date->academy_year }}</td>
@@ -51,12 +51,12 @@
                         <td>{{ $date->staff->name }}</td>
                         <td>
                             <a href="{{ route('editsubject', $date->id) }}">
-                                <button class="btn btn-warning">Update</button>
+                                <button class="btn btn-warning" style="background-color:#1f7a8c ; color:#fff">Update</button>
                             </a>
                         </td>
                         <td>
                             <a href="{{ route('destoresubject', $date->id) }}">
-                                <button class="btn btn-danger">Delete</button>
+                                <button class="btn btn-danger" style="background-color:#0f3f49 ; color:#fff">Delete</button>
                             </a>
                         </td>
                     </tr>

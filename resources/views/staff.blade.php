@@ -19,13 +19,12 @@
             </div>
             <h5 class="card-title">Table</h5>
             <table class="table text-center">
-                <thead>
+                <thead style="color: #1f7a8c">
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">National Id</th>
                         <th scope="col">Role</th>
-                        <th scope="col">Image</th>
                         <th scope="col">Department</th>
                         <th scope="col">Update</th>
                         <th scope="col">Show</th>
@@ -35,19 +34,17 @@
                 <tbody>
                     @foreach ($staff as $staff)
                         <tr>
-                            <th>{{ $staff->id }}</th>
+                            <th style="color: #1f7a8c">{{ $staff->id }}</th>
                             <td>{{ $staff->name }}</td>
                             <td>{{ $staff->national_id }}</td>
                             <td>{{ $staff->role_staff }}</td>
-                            <td><img style="width: 80%; height: 50px;" src="{{ asset($staff->image) }}" alt="">
-                            </td>
                             <td>{{ $staff->department->name }}</td>
-                            <td> <a href="{{ Route('editstaff', $staff->id) }}" class="btn btn-warning my-2 ms-2">Update</a>
+                            <td> <a href="{{ Route('editstaff', $staff->id) }}" class="btn btn-warning my-2 ms-2" style="background-color:#1f7a8c ; color:#fff">Update</a>
                             </td>
-                            <td> <a href="{{ Route('staffshow', $staff->id) }}" class="btn btn-dark my-2 ms-2">Show</a>
+                            <td> <a href="{{ Route('staffshow', $staff->id) }}" class="btn btn-success my-2 ms-2" style="background-color:#74a5af ">Show</a>
                             </td>
                             <td> <a href="{{ Route('destorestaff', $staff->id) }}"
-                                    class="btn btn-danger my-2 ms-2">Delete</a></td>
+                                    class="btn btn-danger my-2 ms-2" style="background-color:#0f3f49 ; color:#fff">Delete</a></td>
                         </tr>
                     @endforeach
 

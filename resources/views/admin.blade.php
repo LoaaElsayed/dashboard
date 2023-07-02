@@ -16,7 +16,7 @@
             <h5 class="card-title">Table</h5>
             <table class="table text-center">
                 <thead>
-                    <tr>
+                    <tr style="color: #1f7a8c">
                         <th scope="col">#</th>
                         <th scope="col">Id</th>
                         <th scope="col">Name</th>
@@ -30,19 +30,19 @@
                     <tr>
                         @foreach ($admin as $date)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
+                            <td style="color: #1f7a8c">{{ $loop->iteration }}</td>
                             <td>{{ $date->id }}</td>
                             <td>{{ $date->name }}</td>
                             <td>{{ $date->email }}</td>
                             <td>{{ $date->role->name }}</td>
                             <td>
                                 <a href="{{ Route('editadmin', $date->id) }}">
-                                    <button class="btn btn-warning">UPdate</button>
+                                    <button class="btn btn-warning" style="background-color:#1f7a8c ; color:#fff">Update</button>
                                 </a>
                             </td>
                             <td>
                                 <a href="{{ Route('destoreadmin', $date->id) }}">
-                                    <button class="btn btn-danger">delete</button>
+                                    <button class="btn btn-danger" style="background-color:#0f3f49 ; color:#fff">delete</button>
                                 </a>
                             </td>
                         </tr>

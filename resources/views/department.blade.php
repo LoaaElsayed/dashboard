@@ -16,7 +16,7 @@
             <h5 class="card-title">Table</h5>
             <table class="table text-center">
                 <thead>
-                    <tr>
+                    <tr style="color: #1f7a8c">
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Admin Name</th>
@@ -27,13 +27,13 @@
                 <tbody>
                     @foreach ($department as $data)
                         <tr>
-                            <th>{{ $data->id }}</th>
+                            <th style="color: #1f7a8c">{{ $data->id }}</th>
                             <td>{{ $data->name }}</td>
                             <td>{{ $data->admin->name }}</td>
                             <td> <a href="{{ Route('editdepartment', $data->id) }}"
-                                    class="btn btn-warning my-2 ms-2">Update</a></td>
+                                    class="btn btn-warning my-2 ms-2" style="background-color:#1f7a8c ; color:#fff ">Update</a></td>
                             <td> <a href="{{ Route('destoredepartment', $data->id) }}"
-                                    class="btn btn-danger my-2 ms-2">Delete</a></td>
+                                    class="btn btn-danger my-2 ms-2" style="background-color:#155865 ; color:#fff">Delete</a></td>
                     @endforeach
                     </tr>
                 </tbody>
