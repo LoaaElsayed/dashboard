@@ -16,7 +16,7 @@ class StudentController extends Controller
     public function editstudent($id)
     {
         $editstu=Student::find($id);
-        return view('student-Handel',compact('editstu'));
+        return view('student-edit',compact('editstu'));
     }
     public function updatestudent(Request $request ,$id)
     {
@@ -24,7 +24,7 @@ class StudentController extends Controller
             'name' => 'required|string|max:100',
             'academy_year' => 'required|in:1,2,3,4',
             'section' =>'required|integer',
-            'academy_code' => 'required|digits:14|unique:students,academy_code',
+            'academy_code' => 'digits:14',
         ]);
         $upstu=Student::find($id);
         $upstu->name = $request->name;
@@ -32,7 +32,7 @@ class StudentController extends Controller
         $upstu->section = $request->section;
         $upstu->academy_code = $request->academy_code;
         $upstu->save();
-        return redirect()->route('editstudent',$id)->with("done", "update successs");
+        return redirect()->back()->with("done", "update successs");
     }
 
     public function destorestudent($id)

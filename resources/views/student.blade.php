@@ -6,6 +6,11 @@
 @endsection
 @section('content')
     <div class="card">
+        @if (Session::has('done'))
+            <div class="alert alert-success" role="alert">
+                {{ Session::get('done') }}
+            </div>
+        @endif
         <div class="card-body">
             <h5 class="card-title">Table</h5>
             <table class="table text-center">
@@ -30,13 +35,13 @@
                         <td>{{ $date->section }}</td>
                         <td>{{ $date->academy_year }}</td>
                         <td>
-                            <a href="{{ route('destorestudent', $date->id) }}">
-                                <button class="btn btn-danger">delete</button>
+                            <a href="{{ route('editstudent', $date->id) }}">
+                                <button class="btn btn-warning">Update</button>
                             </a>
                         </td>
                         <td>
-                            <a href="{{ route('editstudent', $date->id) }}">
-                                <button class="btn btn-warning">Update</button>
+                            <a href="{{ route('destorestudent', $date->id) }}">
+                                <button class="btn btn-danger">delete</button>
                             </a>
                         </td>
                     </tr>
