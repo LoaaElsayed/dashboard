@@ -6,6 +6,15 @@
 @endsection
 @section('content')
     <div class="card">
+        @if ($errors->any())
+            <div class="alert alert-primary">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li> {{ $error }} </li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="card-body">
             <div class="d-flex align-items-center justify-content-around border border-dark my-3">
                 <h4 style="color: #3b5c63; font-weight: bold;font-size: 16px;">Add a New Element To A Table

@@ -43,7 +43,7 @@ class SubjectController extends Controller
         $subject = Subject::find($id);
         $departments = Departmeant::all();
         $staffs = Staff::all();
-        return view('subject', compact('subject','departments', 'staffs'));
+        return view('subject-edit', compact('subject','departments', 'staffs'));
     }
     public function update(Request $request,$id)
     {
@@ -61,13 +61,13 @@ class SubjectController extends Controller
         $subject->staff_id = $request->staff_id;
         $subject->department_id = $request->department_id;
         $subject->save();
-        return redirect()->route('listsubject')->with("done", "update successs");
+        return redirect()->back()->with("done", "update successs");
 
     }
     public function destore($id)
     {
         $subject = Subject::find($id);
         $subject->delete();
-        return redirect()->route('listsubject')->with("done", "delete successs");
+        return redirect()->back()->with("done", "delete successs");
     }
 }
