@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Departmeant;
 use App\Models\Student;
+use App\Models\Departmeant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
@@ -40,5 +41,18 @@ class StudentController extends Controller
         $desstu = Student::find($id);
         $desstu -> delete();
         return redirect('student/liststudent')->with("done", "delete successs");
+    }
+
+    public function absencelec()
+    {
+        $absence = DB::table('studentlec_absence')->get() ;
+        return view('studentlec',compact('absence')) ;
+    }
+    public function deletelec($id)
+    {
+        DB::table('studentlec_absence')->where('id', $id)->delete() ;
+        return redirect()->back()->with("done", "delete successs");
+        // DB::table('notifications')->where('id', $id)->delete();
+        // return redirect()->back()->with("done", "delete successs");
     }
 }

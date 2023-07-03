@@ -39,6 +39,16 @@
                         <i class="bi bi-circle"></i><span>Department</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('listnotification') }}">
+                        <i class="bi bi-circle"></i><span>list notification</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('listnotification') }}">
+                        <i class="bi bi-circle"></i><span>list studentattend lec</span>
+                    </a>
+                </li>
             </ul>
         </li>
         {{--  <!-- End Tables Nav -->  --}}

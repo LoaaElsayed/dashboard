@@ -86,3 +86,10 @@ Route::post('role/addrole','RoleController@store')->name('addrole');
 Route::get('role/editrole/{id}','RoleController@edit')->name('editrole');
 Route::post('role/updaterole/{id}','RoleController@update')->name('updaterole');
 
+
+
+Route::get('absencelec/list', 'StudentController@absencelec')->name('absencelec');
+Route::get('attendlec/edit','StudentController@attendlec')->name('attendlecedit');
+Route::post('attendlec/update','StudentController@attendlec')->name('attendlecupdate');
+
+Route::get('delet/notification','ExcuseController@listnotifcation')->name('deletenotification');
