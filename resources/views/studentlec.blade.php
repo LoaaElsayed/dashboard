@@ -19,28 +19,23 @@
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Academy Code</th>
-                        <th scope="col">Section</th>
-                        <th scope="col">Academy year</th>
+                        <th scope="col">Absence</th>
+                        <th scope="col">Subject_name</th>
                         <th scope="col">Update</th>
                         <th scope="col">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        @foreach ($student as $date)
+                        @foreach ($absence as $date)
                     <tr>
                         <td style="color: #1f7a8c">{{ $date->id }}</td>
                         <td>{{ $date->name }}</td>
                         <td>{{ $date->academy_code }}</td>
-                        <td>{{ $date->section }}</td>
-                        <td>{{ $date->academy_year }}</td>
+                        <td>{{ $date->absence }}</td>
+                        <td>{{ $date->subject_name }}</td>
                         <td>
-                            <a href="{{ route('editstudent', $date->id) }}">
-                                <button class="btn btn-warning" style="background-color:#1f7a8c ; color:#fff">Update</button>
-                            </a>
-                        </td>
-                        <td>
-                            <a href="{{ route('destorestudent', $date->id) }}">
+                            <a href="{{ route('attendlecdelete', $date->id) }}">
                                 <button class="btn btn-danger" style="background-color:#155865 ; color:#fff">delete</button>
                             </a>
                         </td>
