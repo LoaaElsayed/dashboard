@@ -56,6 +56,8 @@ Route::get('excuse/createexcuse','ExcuseController@create')->name('createexcuse'
 Route::post('excuse/addexcuse','ExcuseController@store')->name('addexcuse');
 Route::get('excuse/editexcuse/{id}','ExcuseController@edit')->name('editexcuse');
 Route::post('excuse/updateexcuse/{id}','ExcuseController@update')->name('updateexcuse');
+Route::get('delet/notification','ExcuseController@notidestory')->name('deletenotification');
+
 
 
 // routes departmeant

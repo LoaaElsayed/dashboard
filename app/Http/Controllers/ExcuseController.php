@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Excuse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ExcuseController extends Controller
 {
@@ -57,6 +58,19 @@ class ExcuseController extends Controller
     {
         $excuse = Excuse::find($id);
         $excuse->delete();
+        return redirect()->back()->with("done", "delete successs");
+    }
+
+
+    public function listnotifcation()
+    {
+        $notification = DB::table('notifications')->get();
+        return view('listnotification',compact('notification'));
+    }
+
+    public function notidestory($id)
+    {
+        DB::table('notifications')->where('id', $id)->delete();
         return redirect()->back()->with("done", "delete successs");
     }
 }
