@@ -88,8 +88,14 @@ Route::post('role/updaterole/{id}','RoleController@update')->name('updaterole');
 
 
 
+// absence sheet name
 Route::get('absencelec/list', 'StudentController@absencelec')->name('absencelec');
-Route::get('attendlec/edit','StudentController@attendlec')->name('attendlecedit');
-Route::post('attendlec/update','StudentController@attendlec')->name('attendlecupdate');
+Route::get('absencelec/delete/{id}','StudentController@deletelec')->name('attendlecdelete');
 
-Route::get('delet/notification','ExcuseController@listnotifcation')->name('deletenotification');
+
+// notifications
+Route::get('list/notification','ExcuseController@listnotifcation')->name('listnotification');
+Route::get('delet/notification/{id}','ExcuseController@notidestory')->name('deletenotification');
+
+// schadle
+Route::get('schadle/list', 'SubjectController@listschadule')->name('schadlelist');

@@ -43,12 +43,13 @@ class StaffController extends Controller
         ]);
         $staff = new Staff();
         $staff->name = $request->name;
+        $staff->excuse_number = $request->excuse_number;
         $staff->role_staff = $request->role_staff;
         $staff->company_code = "#Fci21";
         $staff->national_id = $request->national_id;
         $staff->department_id = $request->department_id;
         $path = Storage::disk('uploads')->put('staff', $request->image);
-        $staff->image = "uploads/$path";
+        $staff->image = "http://admin-attendance.first-meeting.net/public/uploads/$path";
         $staff->save();
         return redirect("staff/creatstaff")->with("done", "add successs");
     }
@@ -67,6 +68,7 @@ class StaffController extends Controller
         ]);
         $upstaff = Staff::find($id);
         $upstaff->name = $request->name;
+        $upstaff->excuse_number = $request->excuse_number;
         $upstaff->role_staff = $request->role_staff;
         $upstaff->national_id = $request->national_id;
         $upstaff->department_id = $request->department_id;
@@ -75,15 +77,15 @@ class StaffController extends Controller
             Storage::delete($imagepath);
             $imagepath = Storage::disk('uploads')->put('staff', $request->image);
         }
-        $upstaff->image = "uploads/$imagepath";
+        $upstaff->image = "http://admin-attendance.first-meeting.net/public/uploads/$imagepath";
         $upstaff->save();
         return redirect("/staff/editstaff/$id")->with("done", "update successs");
     }
     public function destore($id)
     {
-        // DB::table('excuses')->where('excuse_id', $id)->delete();
-        DB::table('Staff')->where('id', $id)->delete();
-        return redirect('staff/liststaff')->with("done", "delete successs");
+        $staff = staff::find($id) ;
+        $staff->delete();
+        return redirect()->back()->with("done", "delete successs");
     }
     public function staffabsence()
     {

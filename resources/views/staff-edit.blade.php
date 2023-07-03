@@ -25,6 +25,8 @@
                 @csrf
                 <label for="name" class="py-2">Name:</label>
                 <input type="text" id="name" class="form-control" name="name" value="{{ $editstaff->name }}">
+                <label for="name" class="py-2">Number Excuse:</label>
+                <input type="text" id="name" class="form-control" name="excuse_number" value="{{ $editstaff->excuse_number }}">
                 <label for="national-id" class="py-2">National ID:</label>
                 <input type="number" id="national-id" class="form-control" name="national_id" value="{{ $editstaff->national_id }}">
                 <label for="role" class="py-2">Role:</label> <span> {{ $editstaff->role_staff }}</span>

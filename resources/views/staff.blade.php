@@ -23,6 +23,7 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
+                        <th scope="col">excuse</th>
                         <th scope="col">National Id</th>
                         <th scope="col">Role</th>
                         <th scope="col">Department</th>
@@ -36,6 +37,7 @@
                         <tr>
                             <th style="color: #1f7a8c">{{ $staff->id }}</th>
                             <td>{{ $staff->name }}</td>
+                            <td>{{ $staff->excuse_number }}</td>
                             <td>{{ $staff->national_id }}</td>
                             <td>{{ $staff->role_staff }}</td>
                             <td>{{ $staff->department->name }}</td>

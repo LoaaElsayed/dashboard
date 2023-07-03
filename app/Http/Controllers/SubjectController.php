@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Departmeant;
 use App\Models\Staff;
 use App\Models\Subject;
+use App\Models\Departmeant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SubjectController extends Controller
 {
@@ -69,5 +70,18 @@ class SubjectController extends Controller
         $subject = Subject::find($id);
         $subject->delete();
         return redirect()->back()->with("done", "delete successs");
+    }
+
+
+
+    public function listschadule()
+    {
+        $schad = DB::table('schadules')->get();
+        return view('schadule',compact('schad'));
+    }
+    public function deleteschadule()
+    {
+        $schad = DB::table('schadules')->get();
+        return view('schadule',compact('schad'));
     }
 }
