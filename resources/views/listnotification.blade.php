@@ -28,7 +28,8 @@
                         <tr>
                             <td style="color: #1f7a8c">{{ $loop->iteration }}</td>
                             <th>{{ $notification->id }}</th>
-                            <th>{{ is_string($notification->data) ? json_decode($notification->data, true)['message'] : $notification->data['message'] }}</th>                            <td>{{ $notification->notifiable_id }}</td>
+                            <th>{{ is_string($notification->data) ? json_decode($notification->data, true)['message'] : $notification->data['message'] }}</th>
+                            <td>{{ $notification->notifiable_id }}</td>
                             <td>{{ $notification->read_at}}</td>
                             <td> <a href="{{ Route('deletenotification', $notification->id) }}"
                                     class="btn btn-danger my-2 ms-2" style="background-color:#0f3f49 ; color:#fff">Delete</a></td>

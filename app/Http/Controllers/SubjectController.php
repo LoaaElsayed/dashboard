@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Staff;
 use App\Models\Subject;
 use App\Models\Departmeant;
+use App\Models\schadule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -72,16 +73,4 @@ class SubjectController extends Controller
         return redirect()->back()->with("done", "delete successs");
     }
 
-
-
-    public function listschadule()
-    {
-        $schad = DB::table('schadules')->get();
-        return view('schadule',compact('schad'));
-    }
-    public function deleteschadule()
-    {
-        $schad = DB::table('schadules')->get();
-        return view('schadule',compact('schad'));
-    }
 }

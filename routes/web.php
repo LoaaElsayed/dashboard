@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Departmeant;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +12,16 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
 
 Route::get('/', function () {
     return view('index');
-})->name('home');
+})->name('home')->middleware('auth');
 
 // auth
 Route::get('login','AdminController@login')->name('login');
@@ -56,7 +61,8 @@ Route::get('excuse/createexcuse','ExcuseController@create')->name('createexcuse'
 Route::post('excuse/addexcuse','ExcuseController@store')->name('addexcuse');
 Route::get('excuse/editexcuse/{id}','ExcuseController@edit')->name('editexcuse');
 Route::post('excuse/updateexcuse/{id}','ExcuseController@update')->name('updateexcuse');
-Route::get('delet/notification','ExcuseController@notidestory')->name('deletenotification');
+Route::get('list/notification','ExcuseController@listnotifcation')->name('listnotification');
+Route::get('delet/notification/{id}','ExcuseController@notidestory')->name('deletenotification');
 
 
 
@@ -87,15 +93,13 @@ Route::get('role/editrole/{id}','RoleController@edit')->name('editrole');
 Route::post('role/updaterole/{id}','RoleController@update')->name('updaterole');
 
 
-
 // absence sheet name
 Route::get('absencelec/list', 'StudentController@absencelec')->name('absencelec');
 Route::get('absencelec/delete/{id}','StudentController@deletelec')->name('attendlecdelete');
 
 
-// notifications
-Route::get('list/notification','ExcuseController@listnotifcation')->name('listnotification');
-Route::get('delet/notification/{id}','ExcuseController@notidestory')->name('deletenotification');
-
 // schadle
 Route::get('schadle/list', 'SubjectController@listschadule')->name('schadlelist');
+
+
+
