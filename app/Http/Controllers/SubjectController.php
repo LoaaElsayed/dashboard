@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Staff;
 use App\Models\Subject;
-use App\Models\Departmeant;
 use App\Models\schadule;
+use App\Models\Departmeant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Console\Scheduling\Schedule;
 
 class SubjectController extends Controller
 {
@@ -72,5 +73,4 @@ class SubjectController extends Controller
         $subject->delete();
         return redirect()->back()->with("done", "delete successs");
     }
-
 }

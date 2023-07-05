@@ -50,7 +50,7 @@
                             <td>{{ $data->date }}</td>
                             <td>{{ $data->state }}</td>
                             <td>{{ $data->excuse }}</td>
-                            <td> <a href="{{ route('staffabsencedelete', $data->id ) }}" class="btn btn-danger my-2 ms-2">delete</a></td>
+                            <td> <a href="{{ route('staffabsencedelete', $data->id ) }}" class="btn btn-danger my-2 ms-2" style="background-color:#95a2a4 ; color:#fff">delete</a></td>
                             </tr>
                         @endforeach
                     </tbody>

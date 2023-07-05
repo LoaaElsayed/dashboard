@@ -29,31 +29,29 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">ID</th>
-                        <th scope="col">Name</th>
                         <th scope="col">Academy year</th>
                         <th scope="col">Semester</th>
-                        <th scope="col">Department</th>
-                        <th scope="col">Name Staff</th>
-                        <th scope="col">Update</th>
+                        <th scope="col">Department Name</th>//department_id
+                        <th scope="col">Name Staff</th> //staff_id
+                        <th scope="col">Name Duration</th> //duration_id
+                        <th scope="col">Day Name</th> //day_name
+                        <th scope="col">Name Subject</th> //subject_id
                         <th scope="col">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        @foreach ($subject as $date)
+                        @foreach ($schad as $date)
                     <tr>
                         <td style="color: #1f7a8c">{{ $loop->iteration }}</td>
                         <td>{{ $date->id }}</td>
-                        <td>{{ $date->name }}</td>
                         <td>{{ $date->academy_year }}</td>
                         <td>{{ $date->semester }}</td>
                         <td>{{ $date->department->name }}</td>
                         <td>{{ $date->staff->name }}</td>
-                        <td>
-                            <a href="{{ route('editsubject', $date->id) }}">
-                                <button class="btn btn-warning" style="background-color:#1f7a8c ; color:#fff">Update</button>
-                            </a>
-                        </td>
+                        <td>{{ $date->duration->name }}</td>
+                        <td>{{ $date->day_name}}</td>
+                        <td>{{ $date->Subject->name }}</td>
                         <td>
                             <a href="{{ route('destoresubject', $date->id) }}">
                                 <button class="btn btn-danger" style="background-color:#0f3f49 ; color:#fff">Delete</button>

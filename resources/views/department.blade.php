@@ -33,7 +33,7 @@
                             <td> <a href="{{ Route('editdepartment', $data->id) }}"
                                     class="btn btn-warning my-2 ms-2" style="background-color:#1f7a8c ; color:#fff ">Update</a></td>
                             <td> <a href="{{ Route('destoredepartment', $data->id) }}"
-                                    class="btn btn-danger my-2 ms-2" style="background-color:#155865 ; color:#fff">Delete</a></td>
+                                    class="btn btn-danger my-2 ms-2" style="background-color:#95a2a4 ; color:#fff">Delete</a></td>
                     @endforeach
                     </tr>
                 </tbody>

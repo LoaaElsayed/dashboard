@@ -2,7 +2,7 @@
 @extends('layout.nav')
 @extends('layout.asid')
 @section('title')
-    'Student'
+    Absence lec Student
 @endsection
 @section('content')
     <div class="card">
@@ -21,7 +21,6 @@
                         <th scope="col">Academy Code</th>
                         <th scope="col">Absence</th>
                         <th scope="col">Subject_name</th>
-                        <th scope="col">Update</th>
                         <th scope="col">Delete</th>
                     </tr>
                 </thead>
@@ -36,7 +35,7 @@
                         <td>{{ $date->subject_name }}</td>
                         <td>
                             <a href="{{ route('attendlecdelete', $date->id) }}">
-                                <button class="btn btn-danger" style="background-color:#155865 ; color:#fff">delete</button>
+                                <button class="btn btn-danger" style="background-color:#95a2a4 ; color:#fff">delete</button>
                             </a>
                         </td>
                     </tr>

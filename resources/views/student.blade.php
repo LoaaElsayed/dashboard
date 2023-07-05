@@ -16,8 +16,8 @@
             <table class="table text-center">
                 <thead style="color: #1f7a8c">
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
+                        <th scope="col" style="color: #1f7a8c">#</th> 
+                        <td>name</td>                       
                         <th scope="col">Academy Code</th>
                         <th scope="col">Section</th>
                         <th scope="col">Academy year</th>
@@ -41,7 +41,7 @@
                         </td>
                         <td>
                             <a href="{{ route('destorestudent', $date->id) }}">
-                                <button class="btn btn-danger" style="background-color:#155865 ; color:#fff">delete</button>
+                                <button class="btn btn-danger" style="background-color:#95a2a4 ; color:#fff">delete</button>
                             </a>
                         </td>
                     </tr>

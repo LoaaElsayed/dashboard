@@ -42,7 +42,7 @@
                             </td>
                             <td>
                                 <a href="{{ Route('destoreadmin', $date->id) }}">
-                                    <button class="btn btn-danger" style="background-color:#0f3f49 ; color:#fff">delete</button>
+                                    <button class="btn btn-danger" style="background-color:#95a2a4 ; color:#fff">delete</button>
                                 </a>
                             </td>
                         </tr>

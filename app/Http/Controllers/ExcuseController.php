@@ -71,6 +71,7 @@ class ExcuseController extends Controller
     public function notidestory($id)
     {
         DB::table('notifications')->where('id', $id)->delete();
+        DB::table('staff')->where('id', '=', $id)->decrement('excuse_number');
         return redirect()->back()->with("done", "delete successs");
     }
 }

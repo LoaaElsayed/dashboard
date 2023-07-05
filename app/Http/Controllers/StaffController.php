@@ -23,11 +23,13 @@ class StaffController extends Controller
     public function show($id)
     {
         $info = staff::with('department')->find($id);
-        $absence = DB::table('staff')
-        ->leftJoin('attend_staff', 'staff.national_id', '=', 'attend_staff.national_id')
-        ->where('staff.id', '=', $id)
-        ->first();
-        return view('staff-show', compact('info','absence'));
+        $dateexcuse= DB::table('staff')
+        ->select('notifications.created_at')
+        ->join('notifications','notifications.notifiable_id','=','staff.id')
+        ->where('notifications.notifiable_id',$id)
+        ->get();
+        $absence = DB::table('staff');
+        return view('staff-show', compact('info','dateexcuse'));
     }
     public function create()
     {
@@ -45,7 +47,7 @@ class StaffController extends Controller
         $staff->name = $request->name;
         $staff->excuse_number = $request->excuse_number;
         $staff->role_staff = $request->role_staff;
-        $staff->company_code = "#Fci21";
+        $staff->company_code = "fci21";
         $staff->national_id = $request->national_id;
         $staff->department_id = $request->department_id;
         $path = Storage::disk('uploads')->put('staff', $request->image);
@@ -74,12 +76,16 @@ class StaffController extends Controller
         $upstaff->department_id = $request->department_id;
         $imagepath = $upstaff->image;
         if ($request->hasFile('image')) {
-            Storage::delete($imagepath);
+            if (!empty($imagepath)) {
+                Storage::delete($imagepath);
             $imagepath = Storage::disk('uploads')->put('staff', $request->image);
+            $upstaff->image = "http://admin-attendance.first-meeting.net/public/uploads/$imagepath";
+            }else{
+                $upstaff->image = $imagepath;
+            }
         }
-        $upstaff->image = "http://admin-attendance.first-meeting.net/public/uploads/$imagepath";
         $upstaff->save();
-        return redirect("/staff/editstaff/$id")->with("done", "update successs");
+        return redirect()->back()->with("done", "update successs");
     }
     public function destore($id)
     {
